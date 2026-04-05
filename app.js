@@ -1,4 +1,4 @@
-const API_BOT = 'http://TU_IP_DE_HIDENCLOUD:25191/api/servidores-bot';
+const API_BOT = 'http://toby.hidencloud.com:25191/api/servidores-bot';
 const INVITE_LINK = 'https://discord.com/oauth2/authorize?client_id=1488409630978736158&permissions=8&integration_type=0&scope=bot+applications.commands';
 
 async function init() {
