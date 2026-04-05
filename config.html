@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuración | Vex Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #23272A; color: #FFFFFF; display: flex; height: 100vh; overflow: hidden; }
+        
+        /* Barra Lateral Profesional */
+        .sidebar { width: 250px; background-color: #2C2F33; padding: 20px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid #1a1c1e; }
+        .sidebar h2 { font-size: 20px; text-align: center; margin-bottom: 20px; color: #5865F2; border-bottom: 2px solid #5865F2; padding-bottom: 10px; }
+        .nav-btn { background: none; border: none; color: #b9bbbe; padding: 12px; text-align: left; font-size: 16px; cursor: pointer; border-radius: 5px; transition: 0.3s; }
+        .nav-btn:hover, .nav-btn.active { background-color: #5865F2; color: white; }
+
+        /* Área de Contenido Principal */
+        .content { flex: 1; padding: 40px; overflow-y: auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .module-section { display: none; background-color: #2C2F33; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .module-section.active { display: block; }
+
+        /* Formularios estilo Discord */
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #b9bbbe; font-size: 14px; text-transform: uppercase; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border-radius: 5px; border: none; background-color: #202225; color: white; font-size: 16px; outline: none; }
+        .form-group input:focus { border: 1px solid #5865F2; }
+        
+        .btn-save { background-color: #4CAF50; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.2s; }
+        .btn-save:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2 id="server-name">Cargando...</h2>
+        <button class="nav-btn active" onclick="cambiarPestana('bienvenidas', this)">👋 Bienvenidas</button>
+        <button class="nav-btn" onclick="cambiarPestana('automod', this)">🛡️ Automod</button>
+        <button class="nav-btn" onclick="cambiarPestana('tickets', this)">🎫 Tickets</button>
+        <button class="nav-btn" onclick="window.location.href='dashboard.html'" style="margin-top: auto; background-color: #ED4245; color: white;">⬅️ Volver</button>
+    </div>
+
+    <div class="content">
+        <div class="header">
+            <h1>Configuración del Módulo</h1>
+        </div>
+
+        <div id="bienvenidas" class="module-section active">
+            <h3>Configuración de Bienvenidas</h3>
+            <p style="color: #b9bbbe; margin-bottom: 20px;">Controla los mensajes que Vex envía cuando un usuario nuevo entra al servidor.</p>
+            
+            <div class="form-group">
+                <label>Canal de Bienvenidas</label>
+                <select id="welcome-channel">
+                    <option value="none">Desactivado</option>
+                    <option value="123456789">#general</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Mensaje Personalizado</label>
+                <input type="text" id="welcome-message" placeholder="Ejemplo: ¡Hola {user}, bienvenido a {server}!">
+            </div>
+
+            <button class="btn-save" onclick="guardarBienvenidas()">💾 Guardar Cambios</button>
+        </div>
+
+        <div id="automod" class="module-section">
+            <h3>Protección Automod</h3>
+            <p>Configura los filtros de groserías y links.</p>
+            </div>
+        
+        <div id="tickets" class="module-section">
+            <h3>Sistema de Tickets</h3>
+            <p>Configura las categorías y roles de soporte.</p>
+            </div>
+
+    </div>
+
+    <script>
+        function cambiarPestana(id, elemento) {
+            // Oculta todas las secciones
+            document.querySelectorAll('.module-section').forEach(sec => sec.classList.remove('active'));
+            // Quita el color azul de todos los botones
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Activa la sección y el botón clickeado
+            document.getElementById(id).classList.add('active');
+            elemento.classList.add('active');
+        }
+
+        // Función de prueba para guardar (luego la conectaremos a tu bot real)
+        function guardarBienvenidas() {
+            const canal = document.getElementById('welcome-channel').value;
+            const mensaje = document.getElementById('welcome-message').value;
+            alert("Enviando orden a Vex...\nCanal: " + canal + "\nMensaje: " + mensaje);
+        }
+    </script>
+</body>
+</html>
