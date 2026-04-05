@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración | Vex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="config-body">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img id="server-icon" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Server Icon">
+            <h2 id="server-name">Cargando...</h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <button class="nav-btn active" data-target="bienvenidas">👋 Bienvenidas</button>
+            <button class="nav-btn" data-target="automod">🛡️ Automod</button>
+            <button class="nav-btn" data-target="tickets">🎫 Tickets</button>
+        </nav>
+
+        <a href="dashboard.html" class="btn-back">⬅️ Volver a Servidores</a>
+    </aside>
+
+    <main class="config-content">
+        
+        <section id="bienvenidas" class="module active">
+            <div class="module-header">
+                <h2>👋 Bienvenidas y Despedidas</h2>
+                <p>Configura los mensajes que Vex enviará cuando alguien entre o salga del servidor.</p>
+            </div>
+
+            <div class="settings-card">
+                <div class="form-group">
+                    <label>Canal de Bienvenidas</label>
+                    <select id="canal-bienvenida">
+                        <option value="none">Desactivado</option>
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Mensaje de Bienvenida</label>
+                    <textarea id="mensaje-bienvenida" rows="4" placeholder="¡Hola {user}, bienvenido a {server}! Eres el miembro #{membercount}"></textarea>
+                    <small>Variables permitidas: {user}, {server}, {membercount}</small>
+                </div>
+
+                <button class="btn-save" onclick="guardarConfig('bienvenidas')">Guardar Cambios</button>
+            </div>
+        </section>
+
+        <section id="automod" class="module">
+            <div class="module-header">
+                <h2>🛡️ Protección Automod</h2>
+                <p>Mantén tu servidor limpio de spam y groserías automáticamente.</p>
+            </div>
+
+            <div class="settings-card">
+                <div class="toggle-group">
+                    <div>
+                        <h3>Anti-Links</h3>
+                        <p>Borra mensajes que contengan enlaces (excepto a administradores).</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="anti-links">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <hr style="border-color: #3f4147; margin: 20px 0;">
+
+                <div class="toggle-group">
+                    <div>
+                        <h3>Filtro de Groserías</h3>
+                        <p>Elimina insultos automáticamente.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="anti-insultos">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <button class="btn-save" onclick="guardarConfig('automod')" style="margin-top: 20px;">Guardar Cambios</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="config.js"></script>
+</body>
+</html>
