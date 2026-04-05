@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Servidor | Vex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <span class="brand">VEX DASHBOARD</span>
+            <div id="user-profile" class="user-info"></div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="server-section">
+            <h2><span class="dot green"></span> Servidores con Vex</h2>
+            <div id="servers-con-bot" class="grid-servers">
+                <div class="loader">Buscando servidores...</div>
+            </div>
+        </section>
+
+        <section class="server-section">
+            <h2><span class="dot gray"></span> Invitame a tu servidor</h2>
+            <div id="servers-sin-bot" class="grid-servers"></div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
