@@ -1,5 +1,5 @@
 // La IP de tu HidenCloud con el puerto
-const BOT_API_URL = 'http://TU_IP_DE_HIDENCLOUD:25191/api/servidores-bot';
+const BOT_API_URL = 'http://toby.hidencloud.com:25191/api/servidores-bot';
 
 // El link exacto de invitación que me pasaste
 const INVITE_LINK = 'https://discord.com/oauth2/authorize?client_id=1488409630978736158&permissions=8&integration_type=0&scope=bot+applications.commands';
